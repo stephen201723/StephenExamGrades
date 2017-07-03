@@ -5,7 +5,6 @@ public class PracticeStudentDemo{
 	public static void main(String args []) {
       
 		Scanner input = new Scanner(System.in);  // Scanner input needs to be closed when finished with
-        Scanner cinput = new Scanner(System.in); // Scanner cinput needs to be closed when finished with
      
         PracticeStudent ps = new PracticeStudent();
        
@@ -24,17 +23,21 @@ public class PracticeStudentDemo{
             System.out.println("Enter an option from the above menu");
             
             option = input.nextInt();	
-            
+            System.out.println(option);
+           
             switch(option){	
             
                 case 1: 
                     System.out.println("You have chosen option 1 to enter student details");
                     System.out.println("Generating Student number");
+                    // .nextLine() advances this scanner past the current line and returns the input that was skipped. This method returns the rest of the current line, excluding any line separator at the end. The position is set to the beginning of the next line. 
+                    String studentName = input.nextLine(); 
                     System.out.println("Please enter a name");
-                    ps.setStudentDetails(ps.studentNumber(), input.nextLine()); 
-                    
+                    studentName = input.nextLine();
                     input.reset();
-              
+                    
+                    ps.setStudentDetails(ps.studentNumber(), studentName); 
+ 
                     for(int i=0; i<5; i++){
                     	System.out.print("Can you now enter the marks for the subject: " + choices[i] + " ");
                     	
@@ -61,13 +64,12 @@ public class PracticeStudentDemo{
                     int chosen;
                     for(int i=0;i<5;i++){
                     	System.out.println("Type in an option either 0,1,2,3,4 from the list below");
-                        System.out.println("a. Java \n" + "b. Irish \n" + "c. Maths \n" + "d. Science \n " + "e. English");                        
+                        System.out.println("0. Java \n" + "1. Irish \n" + "2. Maths \n" + "3. Science \n" + "4. English");                        
                         
                         chosen = input.nextInt();
                         		
                         ps.subjectStatus(ps.getMarks(chosen));
-                       
-                       // System.err.println("input.nextInt() #################" + chosen);
+                      
                         System.out.println("you have chosen " + choices[chosen]);
                         System.out.println("The Percentage Grade for " + choices[chosen] + " was " + ps.getMarks(chosen) + "%");
                         System.out.println("The Pass or Fail Grade for " + choices[chosen] +" was " + ps.subjectStatus(ps.getMarks(chosen)));                                               
