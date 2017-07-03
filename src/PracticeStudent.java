@@ -11,7 +11,7 @@ public class PracticeStudent{
     String finalGrade;
     String status;
     String studentName;
-    int subject [] = new int [5];
+    int subject[] = new int [5];
     
     public int studentNumber(){
         Random in = new Random();
@@ -19,40 +19,39 @@ public class PracticeStudent{
         
         return number;
     }
-    public void setStudentDetails(int number, String name){
-        studentName = name;
-        studentNumber = number;
+    public void setStudentDetails(int studentNumber, String studentName){
+        this.studentName = studentName;
+        this.studentNumber = studentNumber;
     }
     
     public void setMarks(int marks, int subjectId){
-        cMarks = marks =((marks>0 && marks <100 ? marks : 0));
+        cMarks = marks = ((marks > 0 && marks < 100 ? marks : 0));
         
         switch(subjectId){
-            case 1:
+            case 0:
                 subject[0] = marks;
                 break;
                 
-            case 2:
+            case 1:
                 subject [1] = marks;
                 break;
                 
-            case 3: 
+            case 2: 
                 subject [2] = marks;
                 break;
                  
-            case 4: 
+            case 3: 
                 subject [3] = marks;
                 break;
                 
-            case 5: 
+            case 4: 
                 subject [4] = marks;
                 break;
-        }
-        
+        }   
     }    
     
     public void calculateGrade(){
-        int fail = 454;
+      //  int fail = 454;
         int total = 0;
         
         for(int i=0; i<5; i++){
@@ -78,9 +77,7 @@ public class PracticeStudent{
             finalGrade = "F";
             status = "FAIL";
         }
-        /*else if(finalGrade == "A" || finalGrade == "B" || finalGrade == "C"){
-            status = "PASS";
-        }*/
+    
         if(subject [0] < 40){
             finalGrade = "F";
             status = "FAIL";
@@ -104,33 +101,35 @@ public class PracticeStudent{
     }
     
     public void getSummary(){
-        String choices [] = {"1. Java", "2. Irish", "3. Maths " , "4. Science", "5.English"};
-        System.out.println("The student name is :" +studentName);
-        System.out.println("The student number is: "+studentNumber);
+    	String choices [] = {"a. Java ", "b. Irish ", "c. Maths " , "d. Science ", "e. English "};
+        System.out.println("The student name is:" + studentName);
+        System.out.println("The student number is: " + studentNumber);
+        
         for(int i=0; i<5; i++){
-        System.out.println("The marks in subject "+choices[i] + "are: " + subject[i]);
+        	System.out.println("The marks in subject " + choices[i] + "are: " + subject[i]);
         }
-        System.out.println("TotalMarks: "+totalGrade);
-        System.out.println("Result: "+status);
-        System.out.println("Grade: "+ finalGrade);
+       
+        System.out.println("Total Marks: " + totalGrade);
+        System.out.println("Result: " + status);
+        System.out.println("Grade: " + finalGrade);
     }
     
     public int getMarks(int subjectId){
         switch(subjectId){
             
-            case 1:
+            case 0:
                 cMarks = subject [0]; ///correct...correct
                 break;
-            case 2:
+            case 1:
                 cMarks = subject [1]; ///correct...correct
                 break;
-            case 3:
+            case 2:
                 cMarks = subject [2]; ///correct...correct
                 break;
-            case 4:
+            case 3:
                 cMarks = subject [3]; ///correct...correct
                 break;
-            case 5:
+            case 4:
                 cMarks = subject [4]; ///correct...correct
                 break;
         }
