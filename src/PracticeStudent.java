@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class PracticeStudent{
-	//Written by Stephen O Leary
+	//Written by Stephen O Leary   
 	int studentNumber;
     int ROLL_NUM_MAX = 99999;
     int ROLL_NUM_MIN = 1000;
